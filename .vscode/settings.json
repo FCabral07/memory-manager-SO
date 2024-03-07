@@ -1,0 +1,7 @@
+// Deixando oculto os arquivos pycache que o python cria para otimizar o novo funcionamento da linguagem
+{
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/__init__.py": true,
+    }
+}
