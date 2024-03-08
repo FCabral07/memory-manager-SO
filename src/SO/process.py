@@ -7,12 +7,18 @@ from ..Memory.address_memory import AddressMemory
 
 class Process:
     '''Class representing a process in SO'''
-    
-    _uid: str = str(uuid.uuid4())
+    # Definindo um array para tamanhos específicos do processo na memória
+    _rand_size: List[int] = [1, 2, 4, 5, 8, 10, 20, 50, 100]
+    _uid: str = None
     _size_in_memory: int = None
     # _process: List[Process] = None
     # _time_to_execute: int = None
     _address_in_memory: AddressMemory = None
+
+    def __init__(self):
+        # Definindo randomicamente o id do processo e o tamanho ocupado na memória
+        self._uid = str(uuid.uuid4())
+        self._size_in_memory = random.choice(self._rand_size)
 
     # Getters and setters
     @property
