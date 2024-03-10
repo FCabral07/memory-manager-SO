@@ -26,10 +26,6 @@ class Process:
         return self._uid
 
     @property
-    def address_in_memory(self) -> AddressMemory:
-        return self._address_in_memory
-
-    @property
     def size_in_memory(self) -> int:
         return self._size_in_memory
     
@@ -40,7 +36,3 @@ class Process:
     @size_in_memory.setter
     def size_in_memory(self, value: int):
         self._size_in_memory = value
-    
-    @address_in_memory.setter
-    def address_in_memory(self, value: AddressMemory):
-        self._address_in_memory = value

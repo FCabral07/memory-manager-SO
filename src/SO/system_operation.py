@@ -6,7 +6,7 @@ from typing import Type
 from src.Memory.memory_manager import MemoryManager
 from src.Memory.strategy import Strategy
 from src.CPU.cpu_manager import CpuManager
-from src.Schedule.schedule import Schedule
+# from src.Schedule.schedule import Schedule
 from src.SO.system_call_type import SystemCallType
 from src.SO.process import Process
 
@@ -15,7 +15,7 @@ class SystemOperation:
 
     _mm: MemoryManager = None
     _cm: CpuManager = None
-    _schedule: Schedule = None
+    # _schedule: Schedule = None
 
     # Getters and setters
     @property
@@ -33,36 +33,31 @@ class SystemOperation:
     @cm.setter
     def cm(self, value: CpuManager) -> None:
         self._cm = value
-    
-    @property
-    def schedule(self) -> Schedule:
-        return self._schedule
-
-    @schedule.setter
-    def schedule(self, value: Schedule) -> None:
-        self._schedule = value
 
     # Métodos
-    def system_call(self, call_type: SystemCallType, p: Process) -> object:
+    def system_call(self, call_type: SystemCallType, p: Process = None) -> Process:
         if call_type == SystemCallType.WRITE_PROCESS:
             # Escrever
-            pass
+            self._mm.write(p)
         elif call_type == SystemCallType.CREATE_PROCESS:
             # Criar
-            if _cm is None:
-                _cm = CpuManager()
-            if _mm is None:
-                _mm = MemoryManager(Strategy.FIRST_FIT)
+            if self._mm is None:
+                self._mm = MemoryManager(Strategy.FIRST_FIT)
+            if self._cm is None:
+                self._cm = CpuManager()
 
             return Process()
-
-        elif (call_type == SystemCallType.DELETE_PROCESS):
+        elif call_type == SystemCallType.DELETE_PROCESS:
             # Apagar
-            pass
-        elif (call_type == SystemCallType.READ_PROCESS):
+            self._mm.delete(p)
+        elif call_type == SystemCallType.READ_PROCESS:
             # Leitura
             pass
         else:
             raise Exception('Invalid system call type')
 
         return None
+
+    def return_memory(self):
+        memoria = self._mm.memory_status()
+        return memoria

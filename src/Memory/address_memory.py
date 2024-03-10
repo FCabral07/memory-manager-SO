@@ -7,6 +7,10 @@ class AddressMemory:
         self._start = start
         self._end = end
 
+    # Methods
+    def size(self) -> int:
+        return (self._end - self._start) + 1
+
     # Getters and Setters
     @property
     def start(self) -> int:
