@@ -36,11 +36,15 @@ class SystemOperation:
 
     # Métodos
     def system_call(self, call_type: SystemCallType, p: Process = None) -> Process:
+        ''' Method for represent a system call in SO '''
+        print(f"Realizando chamada de sistema: {call_type.name}")
         if call_type == SystemCallType.WRITE_PROCESS:
             # Escrever
+            print("Escrevendo processo na memória.")
             self._mm.write(p)
         elif call_type == SystemCallType.CREATE_PROCESS:
             # Criar
+            print("Criando novo processo.")
             if self._mm is None:
                 self._mm = MemoryManager(Strategy.FIRST_FIT)
             if self._cm is None:
@@ -49,15 +53,17 @@ class SystemOperation:
             return Process()
         elif call_type == SystemCallType.DELETE_PROCESS:
             # Apagar
+            print(f"Deletando processo com UID: {p.uid}")
             self._mm.delete(p)
         elif call_type == SystemCallType.READ_PROCESS:
             # Leitura
-            pass
+            print("Realizando leitura de processo.")
         else:
             raise Exception('Invalid system call type')
 
         return None
 
     def return_memory(self):
+        ''' Method for return the memory status '''
         memoria = self._mm.memory_status()
         return memoria

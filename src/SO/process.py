@@ -19,6 +19,7 @@ class Process:
         # Definindo randomicamente o id do processo e o tamanho ocupado na memória
         self._uid = str(uuid.uuid4())
         self._size_in_memory = random.choice(self._rand_size)
+        print(f"Processo criado: UID={self._uid}, Tamanho na Memória={self._size_in_memory}")
 
     # Getters and setters
     @property
