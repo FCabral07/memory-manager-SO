@@ -10,6 +10,7 @@ from src.CPU.cpu_manager import CpuManager
 from src.SO.system_call_type import SystemCallType
 from src.SO.process import Process
 
+
 class SystemOperation:
     '''Class representing a system operation'''
 
@@ -21,7 +22,7 @@ class SystemOperation:
     @property
     def mm(self) -> MemoryManager:
         return self._mm
-    
+
     @mm.setter
     def mm(self, value: MemoryManager) -> None:
         self._mm = value
@@ -29,7 +30,7 @@ class SystemOperation:
     @property
     def cm(self) -> CpuManager:
         return self._cm
-    
+
     @cm.setter
     def cm(self, value: CpuManager) -> None:
         self._cm = value
@@ -46,7 +47,7 @@ class SystemOperation:
             # Criar
             print("Criando novo processo.")
             if self._mm is None:
-                self._mm = MemoryManager(Strategy.FIRST_FIT)
+                self._mm = MemoryManager(Strategy.WORST_FIT)
             if self._cm is None:
                 self._cm = CpuManager()
 
