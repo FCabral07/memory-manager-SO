@@ -32,3 +32,6 @@ Para executar a simulação, siga os passos abaixo:
 1. Certifique-se de ter o Python instalado em sua máquina.
 2. Navegue até a pasta do projeto e instale as dependências usando: `pip install -r requirements.txt`
 3. Para iniciar a simulação, navegue até a pasta `src/SO` e execute o arquivo `main.py` com o comando: `python main.py`
+
+## Para alterar os algoritmos
+- Vá na pasta `src/SO/system_operation.py`, vá na função system_call e mude a linha 50 para o método desejado: *BEST_FIT*, *WORST_FIT* ou *FIRST_FIT*
