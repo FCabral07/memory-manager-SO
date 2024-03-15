@@ -23,8 +23,7 @@ class MemoryManager:
 
     def write(self, p: Process) -> None:
         ''' Selector method for choice what kind of algorithm to use '''
-        print(f"Tentando escrever o processo {
-              p.uid} usando a estratégia {self._strategy.name}")
+        print(f"Tentando escrever o processo {p.uid} usando a estratégia {self._strategy.name}")
         if self._strategy == Strategy.FIRST_FIT:
             self.write_using_first_fit(p)
         elif self._strategy == Strategy.BEST_FIT:
@@ -167,8 +166,7 @@ class MemoryManager:
 
     def _insert_process_in_memory(self, p: Process, start: int, end: int):
         ''' Method to insert a process in memory '''
-        print(f"Inserindo o processo {
-              p.uid} na memória, do bloco {start} até {end}")
+        print(f"Inserindo o processo {p.uid} na memória, do bloco {start} até {end}")
         if end < len(self._physical_memory):
             # Entra no bloco após ter a certeza que o end seja menor que o tamanho da memória
             # Cria o processo para Px, onde X é o atual processo

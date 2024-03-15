@@ -36,7 +36,7 @@ class SystemOperation:
         self._cm = value
 
     # Métodos
-    def system_call(self, call_type: SystemCallType, p: Process = None) -> Process:
+    def system_call(self, call_type: SystemCallType, p: Process = None, size: int = None) -> Process:
         ''' Method for represent a system call in SO '''
         print(f"Realizando chamada de sistema: {call_type.name}")
         if call_type == SystemCallType.WRITE_PROCESS:
@@ -51,7 +51,7 @@ class SystemOperation:
             if self._cm is None:
                 self._cm = CpuManager()
 
-            return Process()
+            return Process(size)
         elif call_type == SystemCallType.DELETE_PROCESS:
             # Apagar
             print(f"Deletando processo com UID: {p.uid}")

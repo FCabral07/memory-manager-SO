@@ -15,10 +15,10 @@ class Process:
     # _time_to_execute: int = None
     _address_in_memory: AddressMemory = None
 
-    def __init__(self):
+    def __init__(self, size: int):
         # Definindo randomicamente o id do processo e o tamanho ocupado na memória
         self._uid = str(uuid.uuid4())
-        self._size_in_memory = random.choice(self._rand_size)
+        self._size_in_memory = size
         print(f"Processo criado: UID={self._uid}, Tamanho na Memória={self._size_in_memory}")
 
     # Getters and setters
