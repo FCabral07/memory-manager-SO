@@ -26,7 +26,7 @@ if __name__ == "__main__":
     # p5 = operation.system_call(SystemCallType.CREATE_PROCESS, None, 40)
     # operation.system_call(SystemCallType.WRITE_PROCESS, p5)
 
-    p6 = operation.system_call(SystemCallType.CREATE_PROCESS, None, 8)
-    operation.system_call(SystemCallType.WRITE_PROCESS, p6)
+    p5 = operation.system_call(SystemCallType.CREATE_PROCESS, None, 8)
+    operation.system_call(SystemCallType.WRITE_PROCESS, p5)
 
     memory = operation.return_memory()

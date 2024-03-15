@@ -47,7 +47,7 @@ class SystemOperation:
             # Criar
             print("Criando novo processo.")
             if self._mm is None:
-                self._mm = MemoryManager(Strategy.WORST_FIT)
+                self._mm = MemoryManager(Strategy.BEST_FIT)
             if self._cm is None:
                 self._cm = CpuManager()
 
